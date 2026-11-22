@@ -1,7 +1,6 @@
-
 # TP 10 - Consultas de reservas paso a paso
 
-**Módulo 3 - Desarrollo Back-end con Node.js**  
+**Módulo 3 - Desarrollo Back-end con Node.js**
 **UNCA - Universidad Nacional de Catamarca**
 
 **Proyecto:** `tp-10-salas-consultas-mongodb`
@@ -42,12 +41,12 @@ El proyecto utiliza CommonJS.
 
 Se utiliza MongoDB Atlas Free con la siguiente configuración:
 
-| Elemento | Valor |
-| --- | --- |
-| Base de datos | `reservas_salas_u10` |
-| Colección | `reservas` |
-| Puerto local | `3000` |
-| Variable de conexión | `MONGODB_URI` |
+| Elemento              | Valor                  |
+| --------------------- | ---------------------- |
+| Base de datos         | `reservas_salas_u10` |
+| Colección            | `reservas`           |
+| Puerto local          | `3000`               |
+| Variable de conexión | `MONGODB_URI`        |
 
 La base del TP10 es independiente de las utilizadas en las entregas anteriores.
 
@@ -72,7 +71,7 @@ El archivo `.env` contiene información privada y no debe publicarse.
 Clonar el repositorio:
 
 ```bash
-git clone https://github.com/Jjofre8/tp-10-salas-consultas-mongodb.git
+git clone https://github.com/jacano1010-dot/tp-10-salas-consultas-mongodb.git
 ```
 
 Ingresar al proyecto:
@@ -153,15 +152,15 @@ Las rutas reciben solicitudes HTTP, los controladores procesan los parámetros y
 
 Cada reserva contiene los siguientes campos:
 
-| Campo | Tipo | Validación |
-| --- | --- | --- |
-| estudiante | String | Obligatorio |
-| email | String | Obligatorio, contiene @ |
-| sala | String | Sala permitida |
-| fecha | String | Obligatorio |
-| turno | String | Mañana, Tarde o Noche |
-| personas | Number | Entero entre 1 y 6 |
-| estado | String | pendiente o confirmada |
+| Campo      | Tipo   | Validación             |
+| ---------- | ------ | ----------------------- |
+| estudiante | String | Obligatorio             |
+| email      | String | Obligatorio, contiene @ |
+| sala       | String | Sala permitida          |
+| fecha      | String | Obligatorio             |
+| turno      | String | Mañana, Tarde o Noche  |
+| personas   | Number | Entero entre 1 y 6      |
+| estado     | String | pendiente o confirmada  |
 
 El estado predeterminado de una reserva nueva es `pendiente`.
 
@@ -193,11 +192,11 @@ No se implementa búsqueda aproximada.
 
 El parámetro `orden` admite tres valores:
 
-| Valor | Comportamiento |
-| --- | --- |
-| estudiante | Orden alfabético ascendente |
-| personas-asc | Cantidad ascendente |
-| personas-desc | Cantidad descendente |
+| Valor         | Comportamiento               |
+| ------------- | ---------------------------- |
+| estudiante    | Orden alfabético ascendente |
+| personas-asc  | Cantidad ascendente          |
+| personas-desc | Cantidad descendente         |
 
 El valor predeterminado es `estudiante`.
 
@@ -296,14 +295,14 @@ Cada elemento de `datos` contiene:
 
 ### Métodos disponibles
 
-| Método | Ruta | Resultado |
-| --- | --- | --- |
-| GET | /api/reservas | Listado paginado |
-| GET | /api/reservas/:id | Reserva individual |
-| POST | /api/reservas | Creación |
-| PUT | /api/reservas/:id | Reemplazo completo |
-| PATCH | /api/reservas/:id | Actualización parcial |
-| DELETE | /api/reservas/:id | Eliminación física |
+| Método | Ruta              | Resultado              |
+| ------- | ----------------- | ---------------------- |
+| GET     | /api/reservas     | Listado paginado       |
+| GET     | /api/reservas/:id | Reserva individual     |
+| POST    | /api/reservas     | Creación              |
+| PUT     | /api/reservas/:id | Reemplazo completo     |
+| PATCH   | /api/reservas/:id | Actualización parcial |
+| DELETE  | /api/reservas/:id | Eliminación física   |
 
 Se mantienen los contratos del TP09 para las operaciones individuales.
 
@@ -327,14 +326,14 @@ turno: Mañana
 estado: pendiente
 ```
 
-| Estudiante | Email | Sala | Personas |
-| --- | --- | --- | --- |
-| Ana Ejemplo | <ana@example.com> | Sala Norte | 2 |
-| Bruno Ejemplo | <bruno@example.com> | Sala Norte | 1 |
-| Carla Ejemplo | <carla@example.com> | Sala Norte | 2 |
-| Diego Ejemplo | <diego@example.com> | Sala Norte | 3 |
-| Elena Ejemplo | <elena@example.com> | Sala Sur | 1 |
-| Fabian Ejemplo | <fabian@example.com> | Sala Multimedia | 4 |
+| Estudiante     | Email                                          | Sala            | Personas |
+| -------------- | ---------------------------------------------- | --------------- | -------- |
+| Ana Ejemplo    | [ana@example.com](mailto:ana@example.com)       | Sala Norte      | 2        |
+| Bruno Ejemplo  | [bruno@example.com](mailto:bruno@example.com)   | Sala Norte      | 1        |
+| Carla Ejemplo  | [carla@example.com](mailto:carla@example.com)   | Sala Norte      | 2        |
+| Diego Ejemplo  | [diego@example.com](mailto:diego@example.com)   | Sala Norte      | 3        |
+| Elena Ejemplo  | [elena@example.com](mailto:elena@example.com)   | Sala Sur        | 1        |
+| Fabian Ejemplo | [fabian@example.com](mailto:fabian@example.com) | Sala Multimedia | 4        |
 
 Las reservas se crean mediante solicitudes POST individuales en Postman.
 
@@ -356,31 +355,31 @@ Para POST, PUT y PATCH se utiliza `Body: raw - JSON`.
 
 ### Consultas válidas
 
-| Consulta | Resultado esperado |
-| --- | --- |
-| Sin parámetros | 2 reservas, total 6, páginas 3 |
-| sala=Sala Norte | Total 4 |
-| orden=personas-asc | Orden ascendente |
-| orden=personas-desc | Orden descendente |
-| pagina=1&limite=2 | Primera página |
-| pagina=2&limite=2 | Segunda página |
-| Sala Norte, página 3 | Datos vacíos, total 4 |
-| Sala inexistente | Datos vacíos, total 0 |
+| Consulta              | Resultado esperado              |
+| --------------------- | ------------------------------- |
+| Sin parámetros       | 2 reservas, total 6, páginas 3 |
+| sala=Sala Norte       | Total 4                         |
+| orden=personas-asc    | Orden ascendente                |
+| orden=personas-desc   | Orden descendente               |
+| pagina=1&limite=2     | Primera página                 |
+| pagina=2&limite=2     | Segunda página                 |
+| Sala Norte, página 3 | Datos vacíos, total 4          |
+| Sala inexistente      | Datos vacíos, total 0          |
 
 Los totales indicados corresponden a las seis reservas iniciales sin escrituras adicionales.
 
 ### Consultas inválidas
 
-| Consulta | Código esperado |
-| --- | --- |
-| pagina=0 | 400 |
-| pagina=1.5 | 400 |
-| limite=21 | 400 |
-| pagina repetida | 400 |
-| sala vacía | 400 |
-| sala repetida | 400 |
-| orden=otro | 400 |
-| select=email | 400 |
+| Consulta        | Código esperado |
+| --------------- | ---------------- |
+| pagina=0        | 400              |
+| pagina=1.5      | 400              |
+| limite=21       | 400              |
+| pagina repetida | 400              |
+| sala vacía     | 400              |
+| sala repetida   | 400              |
+| orden=otro      | 400              |
+| select=email    | 400              |
 
 Los parámetros desconocidos y repetidos se rechazan.
 
@@ -408,15 +407,15 @@ Los resultados se mantienen estables mientras no se realicen escrituras.
 
 Las siguientes funcionalidades se conservan:
 
-| Ruta | Funcionalidad |
-| --- | --- |
-| / | Página de inicio |
-| /reservas | Listado HTML |
-| /reservas/nueva | Formulario |
-| /reservas/:id | Detalle HTML |
-| POST /reservas | Creación desde formulario |
-| /estado | Estado del servidor |
-| /css/estilos.css | Estilos |
+| Ruta             | Funcionalidad              |
+| ---------------- | -------------------------- |
+| /                | Página de inicio          |
+| /reservas        | Listado HTML               |
+| /reservas/nueva  | Formulario                 |
+| /reservas/:id    | Detalle HTML               |
+| POST /reservas   | Creación desde formulario |
+| /estado          | Estado del servidor        |
+| /css/estilos.css | Estilos                    |
 
 El formulario válido mantiene la redirección 302.
 
